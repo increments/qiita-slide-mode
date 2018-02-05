@@ -1,4 +1,3 @@
-
 export const slide = {
   state: {
     isFullscreen: false,

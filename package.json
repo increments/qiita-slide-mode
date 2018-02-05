@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "hyperapp": "^1.0.1",
-    "rollup-plugin-jsx": "^1.0.3"
+    "rollup-plugin-jsx": "^1.0.3",
+    "rollup-plugin-postcss": "^1.2.8"
   }
 }

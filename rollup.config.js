@@ -4,6 +4,7 @@ import resolve from "rollup-plugin-node-resolve"
 import uglify from "rollup-plugin-uglify"
 import serve from "rollup-plugin-serve"
 import livereload from "rollup-plugin-livereload"
+import postcss from "rollup-plugin-postcss"
 
 const prod = !process.env.ROLLUP_WATCH
 const dev = !prod
@@ -16,6 +17,10 @@ export default {
     format: "iife"
   },
   plugins: [
+    postcss({
+      modules: true,
+      extract: true
+    }),
     buble({ jsx: "h" }),
     resolve(),
     commonjs(),
