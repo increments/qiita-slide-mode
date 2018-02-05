@@ -1,8 +1,12 @@
 # @increments/qiita-slide-mode
 
-@increments/qiita-slide-mode includes all Qiita's Slide Mode Hyperapp components.
+@increments/qiita-slide-mode includes all the modules and components that power Qiita's Slide Mode.
 
 ## Installation
+
+```
+?
+```
 
 ## Usage
 
