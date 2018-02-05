@@ -13,9 +13,8 @@ export const SlideViewer = ({ state, actions, pages }) => (
         onclick={event => {
           const target = event.currentTarget
           if (target) {
-            // We can also use offsetWidth/offsetHeight here, but if the element
-            // has any CSS transforms applied, getBoundingClientRect always gets
-            // the actual rendered rectangle dimensions.
+            // getBoundingClientRect always returns the actual rendered element
+            // dimensions, even if there are CSS transformations applied to it.
 
             const rect = target.getBoundingClientRect()
 
