@@ -14,11 +14,11 @@ const state = {
       `<h1>Fourth Slide</h1><p>This is the fourth slide.</p>`
     ]
   },
-  slide: slide.state // <= Slide
+  slide: slide.state
 }
 
 const actions = {
-  slide: slide.actions // <= Slide
+  slide: slide.actions
 }
 
 const view = (state, actions) => (

@@ -1,5 +1,4 @@
 import { h } from "hyperapp"
-import { ProgressBar } from "./ProgressBar"
 import styles from "./styles.css"
 
 export const SlideViewer = ({ state, actions, pages }) => (
@@ -39,7 +38,19 @@ export const SlideViewer = ({ state, actions, pages }) => (
         {state.page + 1}/{pages.length}
       </span>
 
-      <div class={styles.progress}>
+      <div
+        class={styles.progress}
+        onmousemove={event => {}}
+        onclick={event => {
+          actions.goto(
+            getMagnitudeFromRange(
+              event.currentTarget,
+              event.clientX,
+              pages.length
+            ) - 1
+          )
+        }}
+      >
         <div
           class={styles.progressFill}
           style={{
@@ -52,3 +63,8 @@ export const SlideViewer = ({ state, actions, pages }) => (
     </div>
   </div>
 )
+
+function getMagnitudeFromRange(target, x, length) {
+  const rect = target.getBoundingClientRect()
+  return Math.ceil((x - rect.left) / (rect.width / length))
+}

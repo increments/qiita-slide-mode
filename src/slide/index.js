@@ -11,6 +11,9 @@ export const slide = {
     }),
     next: length => state => ({
       page: state.page + 1 >= length ? state.page : state.page + 1
+    }),
+    goto: page => ({
+      page
     })
   }
 }
