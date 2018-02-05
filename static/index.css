@@ -2,6 +2,11 @@
   user-select: none;
 }
 
+.styles_slideViewer__uYxHR {
+  cursor: pointer;
+  background: #ccc;
+}
+
 .styles_fullscreen__3AJXJ {
   position: fixed;
   top: 0;

@@ -4,12 +4,30 @@ import styles from "./styles.css"
 
 export const SlideViewer = ({ state, actions, pages }) => (
   <div
-    class={[styles.unselectable, state.isFullScreen && styles.fullscreen]
-      .filter(item => item)
-      .join(" ")}
+    class={
+      styles.unselectable + " " + (state.isFullScreen ? styles.fullscreen : "")
+    }
   >
-    <div style={{ backgroundColor: "#eee" }}>
-      <div innerHTML={pages[state.page]} />
+    <div class={styles.slideViewer}>
+      <div
+        onclick={event => {
+          const target = event.currentTarget
+          if (target) {
+            // We can also use offsetWidth/offsetHeight here, but if the element
+            // has any CSS transforms applied, getBoundingClientRect always gets
+            // the actual rendered rectangle dimensions.
+
+            const rect = target.getBoundingClientRect()
+
+            if (event.clientX - rect.left > rect.width / 2) {
+              actions.next(pages.length)
+            } else {
+              actions.prev()
+            }
+          }
+        }}
+        innerHTML={pages[state.page]}
+      />
     </div>
 
     <hr />

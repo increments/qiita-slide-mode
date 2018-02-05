@@ -2,6 +2,11 @@
   user-select: none;
 }
 
+.slideViewer {
+  cursor: pointer;
+  background: #ccc;
+}
+
 .fullscreen {
   position: fixed;
   top: 0;
