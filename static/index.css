@@ -1,3 +1,13 @@
 .styles_unselectable__1wBU3 {
   user-select: none;
 }
+
+.styles_fullscreen__3AJXJ {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  background: gray; /* example */
+}

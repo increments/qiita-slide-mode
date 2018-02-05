@@ -3,7 +3,11 @@ import { ProgressBar } from "./ProgressBar"
 import styles from "./styles.css"
 
 export const SlideViewer = ({ state, actions, pages }) => (
-  <div class={styles.unselectable} style={state.style}>
+  <div
+    class={[styles.unselectable, state.isFullScreen && styles.fullscreen]
+      .filter(item => item)
+      .join(" ")}
+  >
     <div style={{ backgroundColor: "#eee" }}>
       <div innerHTML={pages[state.page]} />
     </div>
@@ -20,7 +24,7 @@ export const SlideViewer = ({ state, actions, pages }) => (
 
       <ProgressBar />
 
-      <button onclick={actions.toggleFullscreen}>FullScreen</button>
+      <button onclick={actions.toggleFullScreen}>FullScreen</button>
     </div>
   </div>
 )

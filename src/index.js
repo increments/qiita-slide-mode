@@ -21,6 +21,7 @@ const actions = {
 
 const view = (state, actions) => (
   <div>
+    Slide Mode Demo
     <SlideViewer
       state={state.slide}
       actions={actions.slide}
