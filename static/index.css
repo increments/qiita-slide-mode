@@ -4,7 +4,22 @@
 
 .styles_slideViewer__uYxHR {
   cursor: pointer;
-  background: #ccc;
+  background: #eee;
+}
+
+.styles_dashboard__1ZJRM {
+  display: flex;
+  flex-direction: row;
+}
+
+.styles_progress__1qdnE {
+  display: flex;
+  background: gray;
+  width: 100%;
+}
+
+.styles_progressFill__1GQ4M {
+  background: black;
 }
 
 .styles_fullscreen__3AJXJ {
@@ -14,5 +29,5 @@
   bottom: 0;
   right: 0;
   overflow: auto;
-  background: gray; /* example */
+  background: #eee; /* example */
 }

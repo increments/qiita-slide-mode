@@ -31,7 +31,7 @@ export const SlideViewer = ({ state, actions, pages }) => (
 
     <hr />
 
-    <div>
+    <div class={styles.dashboard}>
       <button onclick={actions.prev}>Prev</button>
       <button onclick={() => actions.next(pages.length)}>Next</button>
 
@@ -39,7 +39,14 @@ export const SlideViewer = ({ state, actions, pages }) => (
         {state.page + 1}/{pages.length}
       </span>
 
-      <ProgressBar />
+      <div class={styles.progress}>
+        <div
+          class={styles.progressFill}
+          style={{
+            width: `${(state.page + 1) / pages.length * 100}%`
+          }}
+        />
+      </div>
 
       <button onclick={actions.toggleFullScreen}>FullScreen</button>
     </div>

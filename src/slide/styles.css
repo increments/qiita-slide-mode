@@ -4,7 +4,22 @@
 
 .slideViewer {
   cursor: pointer;
-  background: #ccc;
+  background: #eee;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+}
+
+.progress {
+  display: flex;
+  background: gray;
+  width: 100%;
+}
+
+.progressFill {
+  background: black;
 }
 
 .fullscreen {
@@ -14,5 +29,5 @@
   bottom: 0;
   right: 0;
   overflow: auto;
-  background: gray; /* example */
+  background: #eee; /* example */
 }
