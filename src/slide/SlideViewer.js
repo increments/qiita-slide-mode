@@ -35,8 +35,15 @@ export const SlideViewer = ({ state, actions, pages }) => (
     )}
 
     <div class={styles.dashboard}>
-      <button onclick={actions.prev}>Prev</button>
-      <button onclick={() => actions.next(pages.length)}>Next</button>
+      <button disabled={state.page === 0} onclick={actions.prev}>
+        Prev
+      </button>
+      <button
+        disabled={state.page === pages.length - 1}
+        onclick={() => actions.next(pages.length)}
+      >
+        Next
+      </button>
 
       <span>
         {state.page + 1}/{pages.length}
