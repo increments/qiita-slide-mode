@@ -2,10 +2,12 @@
 
 @increments/qiita-slide-mode includes all the modules and components that power Qiita's Slide Mode.
 
+![](https://user-images.githubusercontent.com/56996/35896152-4054037e-0bfe-11e8-8b50-3e351abe0f60.gif)
+
 ## Installation
 
 ```
-?
+npm i @increments/qiita-slide-mode
 ```
 
 ## Usage
