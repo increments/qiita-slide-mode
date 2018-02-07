@@ -4,9 +4,11 @@ export const slide = {
     isFullScreen: false,
     page: 0,
     hoverPage: 0,
+    hoverLeft: 0,
     style: {}
   },
   actions: {
+    setHoverLeft: hoverLeft => ({ hoverLeft }),
     setHoverPage: hoverPage => ({ hoverPage }),
     toggleToolTip: () => state => ({
       isToolTipVisible: !state.isToolTipVisible

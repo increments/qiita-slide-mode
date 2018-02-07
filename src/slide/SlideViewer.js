@@ -48,6 +48,9 @@ export const SlideViewer = ({ state, actions, pages }) => (
               pages.length
             )
           )
+
+          actions.setHoverLeft(event.clientX)
+
           if (!state.isToolTipVisible) {
             actions.toggleToolTip()
           }
@@ -76,7 +79,9 @@ export const SlideViewer = ({ state, actions, pages }) => (
       <button onclick={actions.toggleFullScreen}>FullScreen</button>
     </div>
     {state.isToolTipVisible && (
-      <div class={styles.tooltip}>{`${state.hoverPage}/${pages.length}`}</div>
+      <div style={{ left: `${state.hoverLeft}px` }} class={styles.tooltip}>{`${
+        state.hoverPage
+      }/${pages.length}`}</div>
     )}
   </div>
 )
