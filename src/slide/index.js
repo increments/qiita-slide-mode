@@ -1,10 +1,16 @@
 export const slide = {
   state: {
+    isToolTipVisible: false,
     isFullScreen: false,
     page: 0,
+    hoverPage: 0,
     style: {}
   },
   actions: {
+    setHoverPage: hoverPage => ({ hoverPage }),
+    toggleToolTip: () => state => ({
+      isToolTipVisible: !state.isToolTipVisible
+    }),
     toggleFullScreen: () => state => ({ isFullScreen: !state.isFullScreen }),
     prev: () => state => ({
       page: state.page <= 0 ? 0 : state.page - 1

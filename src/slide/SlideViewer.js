@@ -40,7 +40,21 @@ export const SlideViewer = ({ state, actions, pages }) => (
 
       <div
         class={styles.progress}
-        onmousemove={event => {}}
+        onmousemove={event => {
+          actions.setHoverPage(
+            getMagnitudeFromRange(
+              event.currentTarget,
+              event.clientX,
+              pages.length
+            )
+          )
+          if (!state.isToolTipVisible) {
+            actions.toggleToolTip()
+          }
+        }}
+        onmouseleave={event => {
+          actions.toggleToolTip()
+        }}
         onclick={event => {
           actions.goto(
             getMagnitudeFromRange(
@@ -61,6 +75,9 @@ export const SlideViewer = ({ state, actions, pages }) => (
 
       <button onclick={actions.toggleFullScreen}>FullScreen</button>
     </div>
+    {state.isToolTipVisible && (
+      <div class={styles.tooltip}>{`${state.hoverPage}/${pages.length}`}</div>
+    )}
   </div>
 )
 
