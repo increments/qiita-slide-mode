@@ -28,7 +28,11 @@ export const SlideViewer = ({ state, actions, pages }) => (
       />
     </div>
 
-    <hr />
+    {state.isToolTipVisible && (
+      <div style={{ left: `${state.hoverLeft}px` }} class={styles.tooltip}>{`${
+        state.hoverPage
+      }/${pages.length}`}</div>
+    )}
 
     <div class={styles.dashboard}>
       <button onclick={actions.prev}>Prev</button>
@@ -56,7 +60,9 @@ export const SlideViewer = ({ state, actions, pages }) => (
           }
         }}
         onmouseleave={event => {
-          actions.toggleToolTip()
+          if (state.isToolTipVisible) {
+            actions.toggleToolTip()
+          }
         }}
         onclick={event => {
           actions.goto(
@@ -78,11 +84,6 @@ export const SlideViewer = ({ state, actions, pages }) => (
 
       <button onclick={actions.toggleFullScreen}>FullScreen</button>
     </div>
-    {state.isToolTipVisible && (
-      <div style={{ left: `${state.hoverLeft}px` }} class={styles.tooltip}>{`${
-        state.hoverPage
-      }/${pages.length}`}</div>
-    )}
   </div>
 )
 

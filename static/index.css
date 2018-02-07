@@ -25,7 +25,9 @@
 
 .styles_tooltip__3dA4W {
   background: #ccc;
+
   position: fixed;
+  margin-top: -45px;
   padding: 10px;
 }
 
