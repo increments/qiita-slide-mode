@@ -89,7 +89,7 @@ export const SlideViewer = ({ state, actions, pages }) => (
         />
       </div>
 
-      <button onclick={actions.toggleFullScreen}>FullScreen</button>
+      <button onclick={actions.toggleFullScreen}>■</button>
     </div>
   </div>
 )
