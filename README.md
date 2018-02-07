@@ -38,3 +38,10 @@ const view = (state, actions) => (
 
 app(state, actions, view, document.body)
 ```
+
+## TODO
+
+* Refactor getBoundingClientRect usage and reuse in tooltip.
+* Make tooltip its own component.
+* Make progress bar its own component.
+* Use good styles.
