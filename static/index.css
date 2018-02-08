@@ -23,14 +23,6 @@
   background: black;
 }
 
-.styles_tooltip__3dA4W {
-  background: #ccc;
-
-  position: fixed;
-  margin-top: -45px;
-  padding: 10px;
-}
-
 .styles_fullscreen__3AJXJ {
   position: fixed;
   top: 0;
@@ -39,4 +31,12 @@
   right: 0;
   overflow: auto;
   background: #eee; /* example */
+}
+
+.styles_tooltip__1bZ5g {
+  background: #fff;
+  border: 2px solid black;
+  position: fixed;
+  margin-top: -45px;
+  padding: 10px;
 }

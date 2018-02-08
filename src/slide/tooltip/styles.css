@@ -1,0 +1,7 @@
+.tooltip {
+  background: #fff;
+  border: 2px solid black;
+  position: fixed;
+  margin-top: -45px;
+  padding: 10px;
+}

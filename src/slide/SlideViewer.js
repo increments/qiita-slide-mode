@@ -1,4 +1,5 @@
 import { h } from "hyperapp"
+import { Tooltip } from "./tooltip/Tooltip"
 import styles from "./styles.css"
 
 export const SlideViewer = ({ state, actions, pages }) => (
@@ -28,11 +29,7 @@ export const SlideViewer = ({ state, actions, pages }) => (
       />
     </div>
 
-    {state.isToolTipVisible && (
-      <div style={{ left: `${state.hoverLeft}px` }} class={styles.tooltip}>{`${
-        state.hoverPage
-      }/${pages.length}`}</div>
-    )}
+    <Tooltip state={state.tooltip} length={pages.length} />
 
     <div class={styles.dashboard}>
       <button disabled={state.page === 0} onclick={actions.prev}>
@@ -52,24 +49,17 @@ export const SlideViewer = ({ state, actions, pages }) => (
       <div
         class={styles.progress}
         onmousemove={event => {
-          actions.setHoverPage(
-            getMagnitudeFromRange(
+          actions.tooltip.show({
+            page: getMagnitudeFromRange(
               event.currentTarget,
               event.clientX,
               pages.length
-            )
-          )
-
-          actions.setHoverLeft(event.clientX)
-
-          if (!state.isToolTipVisible) {
-            actions.toggleToolTip()
-          }
+            ),
+            left: event.clientX
+          })
         }}
         onmouseleave={event => {
-          if (state.isToolTipVisible) {
-            actions.toggleToolTip()
-          }
+          actions.tooltip.hide()
         }}
         onclick={event => {
           actions.goto(

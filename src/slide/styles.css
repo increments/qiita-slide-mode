@@ -23,14 +23,6 @@
   background: black;
 }
 
-.tooltip {
-  background: #ccc;
-
-  position: fixed;
-  margin-top: -45px;
-  padding: 10px;
-}
-
 .fullscreen {
   position: fixed;
   top: 0;
