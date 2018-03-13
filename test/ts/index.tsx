@@ -1,1 +1,1 @@
-import { SlideViewer } from "QiitaSlideMode" // @increments/qiita-slide-mode
+import { SlideMode } from "qiita-slide-mode"

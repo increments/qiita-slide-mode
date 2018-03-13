@@ -6,7 +6,7 @@
     "jsxFactory": "h",
     "baseUrl": "../..",
     "paths": {
-      "QiitaSlideMode": ["src", "QiitaSlideMode.d.ts"]
+      "qiita-slide-mode": ["src", "index.d.ts"]
     }
   },
   "include": ["*.ts", "*.tsx", "**/*.ts", "**/*.tsx"]
