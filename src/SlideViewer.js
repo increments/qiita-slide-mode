@@ -1,14 +1,10 @@
 import { h } from "hyperapp"
-import { Tooltip } from "./tooltip/Tooltip"
-import styles from "./styles.css"
+import { Tooltip } from "./Tooltip"
+import { getMagnitudeFromRange } from "./getMagnitudeFromRange"
 
 export const SlideViewer = ({ state, actions, pages }) => (
-  <div
-    class={
-      styles.unselectable + " " + (state.isFullScreen ? styles.fullscreen : "")
-    }
-  >
-    <div class={styles.slideViewer}>
+  <div class={"unselectable" + " " + (state.isFullScreen ? "fullscreen" : "")}>
+    <div class="slideViewer">
       <div
         onclick={event => {
           const target = event.currentTarget
@@ -31,7 +27,7 @@ export const SlideViewer = ({ state, actions, pages }) => (
 
     <Tooltip state={state.tooltip} length={pages.length} />
 
-    <div class={styles.dashboard}>
+    <div class="dashboard">
       <button disabled={state.page === 0} onclick={actions.prev}>
         Prev
       </button>
@@ -47,7 +43,7 @@ export const SlideViewer = ({ state, actions, pages }) => (
       </span>
 
       <div
-        class={styles.progress}
+        class="progress"
         onmousemove={event => {
           actions.tooltip.show({
             page: getMagnitudeFromRange(
@@ -72,7 +68,7 @@ export const SlideViewer = ({ state, actions, pages }) => (
         }}
       >
         <div
-          class={styles.progressFill}
+          class="progressFill"
           style={{
             width: `${(state.page + 1) / pages.length * 100}%`
           }}
@@ -83,8 +79,3 @@ export const SlideViewer = ({ state, actions, pages }) => (
     </div>
   </div>
 )
-
-function getMagnitudeFromRange(target, x, length) {
-  const rect = target.getBoundingClientRect()
-  return Math.ceil((x - rect.left) / (rect.width / length))
-}

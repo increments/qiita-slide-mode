@@ -1,3 +1,19 @@
-node_modules
-static/index.js
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log*
 yarn.lock
+package-lock.json
+
+# Misc
+example*
+notes/
+node_modules
+coverage
+*.xml
+
+# Dist
+*.gz
+dist/

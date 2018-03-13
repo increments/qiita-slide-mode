@@ -1,8 +1,8 @@
 # @increments/qiita-slide-mode
 
-@increments/qiita-slide-mode includes all the modules and components that power Qiita's Slide Mode.
+[![Travis CI](https://img.shields.io/travis/increments/qiita-slide-mode/master.svg)](https://travis-ci.org/increments/qiita-slide-mode) [![npm](https://img.shields.io/npm/v/@increments/qiita-slide-mode.svg)](https://www.npmjs.org/package/@increments/qiita-slide-mode)
 
-![](https://user-images.githubusercontent.com/56996/35896152-4054037e-0bfe-11e8-8b50-3e351abe0f60.gif)
+@increments/qiita-slide-mode includes all the components used in Qiita's Slide Mode.
 
 ## Installation
 
@@ -41,9 +41,16 @@ const view = (state, actions) => (
 app(state, actions, view, document.body)
 ```
 
+
+![](https://user-images.githubusercontent.com/56996/35896152-4054037e-0bfe-11e8-8b50-3e351abe0f60.gif)
+
 ## TODO
 
-* Refactor getBoundingClientRect usage and reuse in tooltip.
+* Refactor `getBoundingClientRect` usage and reuse in tooltip.
 * Make tooltip its own component.
 * Make progress bar its own component.
 * Use good styles.
+
+## License
+
+@increments/qiita-slide-mode is MIT licensed. See [LICENSE](LICENSE.md).
