@@ -1,0 +1,14 @@
+{
+  "name": "qiita-slide-mode-example",
+  "main": "index.js",
+  "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "parcel-bundler": "^1.6.2",
+    "hyperapp": "^1.1.2"
+  },
+  "scripts": {
+    "start": "parcel index.html"
+  }
+}

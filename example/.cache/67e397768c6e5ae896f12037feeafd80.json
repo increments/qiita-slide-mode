@@ -1,0 +1,1 @@
+{"dependencies":[{"name":"./index.js","dynamic":true}],"generated":{"html":"<!doctype html>\n<html>\n\n<head>\n  <meta charset=\"utf-8\">\n  <script defer=\"\" src=\"/dist/qiita-slide-mode-example.js\"></script>\n</head>\n\n<body></body>\n\n</html>\n"},"hash":"6396dc8884407093ce1d2534b173107e","cacheData":{}}
