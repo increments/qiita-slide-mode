@@ -5,13 +5,12 @@
   "version": "0.0.0",
   "main": "dist/QiitaSlideMode.js",
   "module": "src/index.js",
-  "typings": "SlideMode.d.ts",
   "license": "MIT",
   "repository": "increments/qiita-slide-mode",
   "files": [
     "src",
     "dist",
-    "SlideMode.d.ts"
+    "index.d.ts"
   ],
   "author": "Jorge Bucaran",
   "scripts": {
