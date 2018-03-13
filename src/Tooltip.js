@@ -1,5 +1,4 @@
 import { h } from "hyperapp"
-import styles from "./styles.css"
 
 export const Tooltip = ({ state, length }) =>
   state.isVisible && (

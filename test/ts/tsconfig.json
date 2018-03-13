@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noEmit": true,
+    "jsx": "react",
+    "jsxFactory": "h",
+    "baseUrl": "../..",
+    "paths": {
+      "QiitaSlideMode": ["src", "QiitaSlideMode.d.ts"]
+    }
+  },
+  "include": ["*.ts", "*.tsx", "**/*.ts", "**/*.tsx"]
+}
