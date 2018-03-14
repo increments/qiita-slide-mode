@@ -5,10 +5,16 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.1",
-    "parcel-bundler": "^1.6.2",
-    "hyperapp": "^1.1.2"
+    "hyperapp": "^1.1.2",
+    "npm-run-all": "^4.1.2",
+    "parcel-bundler": "^1.6.2"
   },
   "scripts": {
-    "start": "parcel index.html"
+    "start": "npm-run-all -p dev:*",
+    "dev:scss": "node-sass ../src/styles/style.scss ./style.css;node-sass ../src/styles/style.scss ./style.css -w",
+    "dev:js": "parcel index.html"
+  },
+  "devDependencies": {
+    "node-sass": "^4.7.2"
   }
 }
