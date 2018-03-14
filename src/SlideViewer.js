@@ -7,18 +7,19 @@ export const SlideViewer = ({ state, actions, pages }) => (
     <div class="slideViewer">
       <div
         onclick={event => {
-          const target = event.currentTarget
-          if (target) {
-            // getBoundingClientRect always returns the actual rendered element
-            // dimensions, even if there are CSS transformations applied to it.
+          if (event.target.tagName !== "IMG" || event.target.tagName === "A") {
+            return 
+          }
 
-            const rect = target.getBoundingClientRect()
+          // getBoundingClientRect always returns the actual rendered element
+          // dimensions, even if there are CSS transformations applied to it.
 
-            if (event.clientX - rect.left > rect.width / 2) {
-              actions.next(pages.length)
-            } else {
-              actions.prev()
-            }
+          const rect = event.currentTarget.getBoundingClientRect()
+
+          if (event.clientX - rect.left > rect.width / 2) {
+            actions.next(pages.length)
+          } else {
+            actions.prev()
           }
         }}
         innerHTML={pages[state.page]}
