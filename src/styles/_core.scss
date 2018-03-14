@@ -1,3 +1,6 @@
+/* Tmp Style */
+/* TODO: remove */
+
 .unselectable {
   user-select: none;
 }
@@ -33,11 +36,410 @@
   background: #eee; /* example */
 }
 
-/**/
 .tooltip {
   background: #fff;
   border: 2px solid black;
   position: fixed;
   margin-top: -45px;
   padding: 10px;
+}
+
+/* Main style */
+/* TODO: styling */
+
+@mixin fullscreen {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 0;
+
+  .slide_preview {
+    width: 100%;
+    margin: 0 auto;
+    border: 0;
+    order: 0;
+    flex: 1 1;
+    font-size: 4em;
+
+    @media (min-width: 800px) {
+      font-size: 2.2em;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 2.4em;
+    }
+
+    .emoji {
+      width: .7em;
+      height: .7em;
+      vertical-align: top;
+    }
+  }
+
+  .slide_controller {
+    margin: 0;
+    padding: 0;
+    background-color: #444;
+    color: #fff;
+    order: 1;
+    flex: 0 1;
+
+    &_btn {
+      padding: 15px 20px;
+    }
+  }
+}
+
+.slide {
+  margin-bottom: 40px;
+
+  .slideViewer {
+    width: 100%;
+    height: 480px;
+    padding: 0;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid lighten(#999, 15%);
+    border-bottom: 0;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    overflow: auto;
+    font-size: 2.2em;
+    cursor: pointer;
+
+    @media (max-width: $break-point-xs) {
+      font-size: 1.3em;
+    }
+
+    @media (min-width: $break-point-s) {
+      font-size: 1.6em;
+    }
+
+    @media (min-width: $break-point-m) {
+      font-size: 1.9em;
+    }
+
+    @media (min-width: $break-point-l) {
+      font-size: 2.2em;
+    }
+
+    .it-MdContent & {
+      @media (min-width: $break-point-l) {
+        font-size: 2em;
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 1em;
+
+      .emoji {
+        vertical-align: text-top;
+      }
+    }
+
+    h1 {
+      font-size: 1.5em !important;
+    }
+
+    h2 {
+      font-size: 1.3em !important;
+    }
+
+    > div {
+      min-height: 480px;
+      padding: 1em;
+    }
+
+    > div > h1,
+    > div > h2,
+    > div > h3,
+    > div > h4,
+    > div > h5,
+    > div > h6 {
+      &:first-child {
+        margin-top: 0;
+        margin-bottom: .4em;
+      }
+    }
+
+    > div > h1,
+    > div > h2,
+    > div > h3,
+    > div > h4,
+    > div > h5,
+    > div > h6,
+    &_firstSlide {
+      &:only-child {
+        border-bottom: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        width: 90%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+        font-size: 1em;
+        text-align: center;
+        line-height: 1.3;
+      }
+
+      .fa-link {
+        display: none;
+      }
+    }
+
+    h1 {
+      margin: 1em 0 !important;
+    }
+
+    > div > h1:only-child {
+      font-size: 2.5em;
+    }
+
+
+    p:only-child > a:only-child img {
+      margin-bottom: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .emoji {
+      width: .8em;
+      height: .8em;
+      vertical-align: baseline;
+    }
+
+    p {
+      margin: 0 0 .6em;
+      line-height: 1.6;
+    }
+
+    ul,
+    ol {
+      margin: 0 0 .6em;
+    }
+
+    ul {
+      padding-left: 1.2em;
+    }
+
+    li {
+      margin-bottom: .3em;
+      line-height: 1.4;
+    }
+
+    .code-frame {
+      pointer-events: auto;
+
+      pre {
+        cursor: text;
+        font-size: .7em;
+      }
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -1em;
+      transform: scale(1.5);
+      vertical-align: text-top;
+    }
+
+    &_firstSlide {
+      h1 {
+        margin-top: .8em;
+        margin-bottom: .3em;
+        padding-bottom: .3em;
+        border-bottom: 1px solid lighten(#999, 20%);
+        font-size: 1.2em;
+        font-weight: bold;
+        line-height: 1.2;
+      }
+
+      &_author {
+        font-size: .4em;
+        color: #999;
+      }
+    }
+  }
+
+  &_controller {
+    margin: 0;
+    padding: 0 5px;
+    width: 100%;
+    min-height: 50px;
+    background: linear-gradient(to bottom, #59bb0c 0%, desaturate(#59bb0c, 20%) 100%);
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+
+    &_btn {
+      transition: color .1s linear;
+      padding: 15px;
+      background-color: transparent;
+      border: 0;
+      outline: 0;
+      color: #42860d;
+      font-size: 14px;
+      cursor: default;
+
+      &.clickable {
+        color: lighten(desaturate(#59bb0c, 40%), 30%);
+        cursor: pointer;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+
+    &_btnGroup {
+      width: 90px;
+      min-width: 90px;
+      align-self: center;
+
+      .slide_controller_btn {
+        width: 50%;
+      }
+    }
+
+    &_pageCount {
+      min-width: 45px;
+      margin: 0 10px;
+      padding-right: 10px;
+      font-size: 10px;
+      text-align: right;
+    }
+
+    &_progress {
+      flex: 1;
+      padding: 0 10px 0 0;
+
+      &_container {
+        height: 10px;
+        margin-bottom: 0;
+        border-radius: 6px;
+        cursor: pointer;
+        overflow: hidden;
+      }
+
+      &_bar {
+        float: left;
+        width: 0%;
+        height: 100%;
+        line-height: 20px;
+        background-color: lighten(desaturate(#59bb0c, 35%), 40%);
+        transition: none;
+      }
+
+      &_remain {
+        background-color: darken(#59bb0c, 10%);
+      }
+    }
+
+    &_fullscreen,
+    &_logo {
+      width: 48px;
+      margin-right: 8px;
+    }
+
+    &_logo {
+      height: 16px;
+
+      & > svg {
+        fill: #fff;
+      }
+    }
+  }
+
+  .teamArticle_body & &_controller,
+  .teamEditor & &_controller {
+    background: linear-gradient(to bottom, #458ac5 0%, darken(#458ac5, 10%) 100%);
+
+    &_btn {
+      color: #20517b;
+
+      &.clickable {
+        color: lighten(#458ac5, 20%);
+        cursor: pointer;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+
+    &_progress {
+      &_bar {
+        background-color: lighten(#458ac5, 30%);
+      }
+
+      &_remain {
+        background-color: darken(#458ac5, 15%);
+      }
+    }
+  }
+
+  .editorPreview_article & &_preview {
+    padding: .7em;
+    font-size: 2vw;
+  }
+
+  code.code {
+    white-space: pre;
+  }
+
+  // Fullscreen pseudo class does not work to write in mutilple selector.
+
+  &:fullscreen {
+    @include fullscreen;
+
+    .slide_preview {
+      img {
+        zoom: 1.8;
+      }
+    }
+  }
+
+  &:-moz-full-screen {
+    @include fullscreen;
+
+    .slide_preview {
+      img {
+        width: 80%;
+      }
+    }
+  }
+
+  &:-ms-full-screen {
+    @include fullscreen;
+
+    .slide_preview {
+      img {
+        zoom: 1.8;
+      }
+    }
+  }
 }

@@ -3,7 +3,7 @@ import { Tooltip } from "./Tooltip"
 import { getMagnitudeFromRange } from "./getMagnitudeFromRange"
 
 export const SlideViewer = ({ state, actions, pages }) => (
-  <div class={"unselectable" + " " + (state.isFullScreen ? "fullscreen" : "")}>
+  <div class={"slide unselectable" + " " + (state.isFullScreen ? "fullscreen" : "")}>
     <div class="slideViewer">
       <div
         onclick={event => {
