@@ -12,6 +12,8 @@ npm i @increments/qiita-slide-mode
 
 ## Usage
 
+on JS file
+
 ```jsx
 import { h, app } from "hyperapp"
 import { SlideViewer, slide } from "@increments/qiita-slide-mode"
@@ -41,6 +43,12 @@ const view = (state, actions) => (
 app(state, actions, view, document.body)
 ```
 
+on SCSS file
+
+```scss
+@import "@increments/qiita-slide-mode/src/styles/vars"
+@import "@increments/qiita-slide-mode/src/styles/core"
+```
 
 ![](https://user-images.githubusercontent.com/56996/35896152-4054037e-0bfe-11e8-8b50-3e351abe0f60.gif)
 
