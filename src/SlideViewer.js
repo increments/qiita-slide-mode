@@ -4,13 +4,19 @@ import { getMagnitudeFromRange } from "./getMagnitudeFromRange"
 import { QiitaLogo } from "./QiitaLogo"
 
 export const SlideViewer = ({ state, actions, pages }) => (
-  <div class={"slideMode unselectable" + " " + (state.isFullScreen ? "fullscreen" : "")}>
+  <div
+    class={
+      "slideMode unselectable" +
+      " " +
+      (state.isFullScreen ? "is-fullscreen" : "")
+    }
+  >
     <div class="slideMode-Viewer">
       <div
         class="slideMode-Viewer_content"
         onclick={event => {
           if (event.target.tagName !== "IMG" || event.target.tagName === "A") {
-            return 
+            return
           }
 
           // getBoundingClientRect always returns the actual rendered element
@@ -32,22 +38,29 @@ export const SlideViewer = ({ state, actions, pages }) => (
 
     <div class="slideMode-Dashboard">
       <button
-        class={"slideMode-Dashboard_button slideMode-Dashboard_button--prev " + (state.page !== 0 ? "slideMode-Dashboard_button--clickable" : "")}
+        class={
+          "slideMode-Dashboard_button slideMode-Dashboard_button--prev " +
+          (state.page !== 0 ? "slideMode-Dashboard_button--clickable" : "")
+        }
         disabled={state.page === 0}
-        onclick={actions.prev}>
+        onclick={actions.prev}
+      >
         <i class="fa fa-backward" />
       </button>
       <button
-        class={"slideMode-Dashboard_button slideMode-Dashboard_button--next " + (state.page !== pages.length - 1 ? "slideMode-Dashboard_button--clickable" : "")}
+        class={
+          "slideMode-Dashboard_button slideMode-Dashboard_button--next " +
+          (state.page !== pages.length - 1
+            ? "slideMode-Dashboard_button--clickable"
+            : "")
+        }
         disabled={state.page === pages.length - 1}
         onclick={() => actions.next(pages.length)}
       >
         <i class="fa fa-forward" />
       </button>
 
-      <span
-        class="slideMode-Dashboard_pageCount"
-      >
+      <span class="slideMode-Dashboard_pageCount">
         {state.page + 1} / {pages.length}
       </span>
 
@@ -86,7 +99,8 @@ export const SlideViewer = ({ state, actions, pages }) => (
 
       <button
         class="slideMode-Dashboard_button slideMode-Dashboard_button--fullscreen slideMode-Dashboard_button--clickable"
-        onclick={actions.toggleFullScreen}>
+        onclick={actions.toggleFullScreen}
+      >
         <i class="fa fa-desktop" />
       </button>
 
