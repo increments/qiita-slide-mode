@@ -4,6 +4,53 @@
 <head>
   <meta charset="utf-8">
   <script defer src="./index.js"></script>
+  <style>
+    .unselectable {
+      user-select: none;
+    }
+
+    .slideViewer {
+      cursor: pointer;
+      background: #eee;
+    }
+
+    .dashboard {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .progress {
+      cursor: pointer;
+      display: flex;
+      background: gray;
+      width: 100%;
+    }
+
+    .progressFill {
+      background: black;
+    }
+
+    .fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      overflow: auto;
+      background: #eee;
+      /* example */
+    }
+
+    /**/
+
+    .tooltip {
+      background: #fff;
+      border: 2px solid black;
+      position: fixed;
+      margin-top: -45px;
+      padding: 10px;
+    }
+  </style>
 </head>
 
 <body></body>
