@@ -1,3 +1,23 @@
+
+.tooltip {
+  color: #fff;
+  background: rgba(0,0,0,0.85);
+  border: 2px solid black;
+  position: fixed;
+  margin-left: -20px;
+  margin-top: -28px;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  animation: slideModeFadeIn 0.25s ease-out;
+}
+
+@keyframes slideModeFadeIn {
+  0% { opacity:  0.0 }
+  100% { opacity: 1.0 }
+}
+
 @mixin fullscreen {
   z-index: 0;
   position: absolute;
