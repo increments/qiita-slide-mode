@@ -6,9 +6,7 @@ import { QiitaLogo } from "./QiitaLogo"
 export const SlideViewer = ({ state, actions, pages }) => (
   <div
     class={
-      "slideMode unselectable" +
-      " " +
-      (state.isFullScreen ? "is-fullscreen" : "")
+      "slideMode" + (state.isFullScreen ? " fullscreen" : "")
     }
   >
     <div class="slideMode-Viewer">
