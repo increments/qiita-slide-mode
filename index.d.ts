@@ -12,7 +12,8 @@ export interface State {
 }
 
 export interface Option {
-  contentClass: string
+  contentClass?: string
+  theme?: string
 }
 
 /**
