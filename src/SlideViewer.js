@@ -3,6 +3,9 @@ import { Tooltip } from "./Tooltip"
 import { getMagnitudeFromRange } from "./getMagnitudeFromRange"
 import { QiitaLogo } from "./QiitaLogo"
 
+const LEFT_KEY = 37
+const RIGHT_KEY = 39
+
 export const SlideViewer = ({ state, actions, pages, option = {} }) => {
   const next = () => actions.next(pages.length)
   const prev = actions.prev
@@ -11,9 +14,9 @@ export const SlideViewer = ({ state, actions, pages, option = {} }) => {
       class={"slideMode" + (state.isFullScreen ? " fullscreen" : "")}
       oncreate={element => {
         element.customKeyHandler = event => {
-          if (event.keyCode === 37) {
+          if (event.keyCode === LEFT_KEY) {
             prev()
-          } else if (event.keyCode === 39) {
+          } else if (event.keyCode === RIGHT_KEY) {
             next()
           }
         }
