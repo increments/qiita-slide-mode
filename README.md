@@ -52,6 +52,39 @@ on SCSS file
 
 ![](https://user-images.githubusercontent.com/56996/35896152-4054037e-0bfe-11e8-8b50-3e351abe0f60.gif)
 
+## Options
+
+
+### Usage
+
+```jsx
+
+// ...
+
+const option = {
+  contentClass: 'your-awesome-class',
+  theme: 'your-theme'
+}
+
+const view = (state, actions) => (
+  <SlideViewer
+    state={state.slide}
+    actions={actions.slide}
+    pages={state.article.body}
+    option={option}
+  />
+)
+```
+
+### Option properties
+
+- contentClass?: string
+  - default: 'markdownContent'
+  - markdown content body css classname.
+- theme? string
+  - default: null
+  - color scheme theme suffix
+
 ## TODO
 
 * Refactor `getBoundingClientRect` usage and reuse in tooltip.
