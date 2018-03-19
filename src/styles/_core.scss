@@ -30,10 +30,6 @@
     box-sizing: border-box;
   }
 
-  &.fullscreen {
-    @include fullscreen;
-  }
-
   &-Viewer {
     width: 100%;
     padding: 0;
@@ -361,6 +357,10 @@
   }
 
   // Fullscreen pseudo class does not work to write in mutilple selector.
+
+  &.fullscreen {
+    @include fullscreen;
+  }
 
   &:fullscreen {
     @include fullscreen;
