@@ -3,14 +3,14 @@ import { Tooltip } from "./Tooltip"
 import { getMagnitudeFromRange } from "./getMagnitudeFromRange"
 import { QiitaLogo } from "./QiitaLogo"
 
-export const SlideViewer = ({ state, actions, pages }) => (
+export const SlideViewer = ({ state, actions, pages, option }) => (
   <div class={"slideMode" + (state.isFullScreen ? " fullscreen" : "")}>
     <div class="slideMode-Viewer">
       <div
         class={
           "slideMode-Viewer_content" +
-          (state.page === 0 ? " slideMode-Viewer_content--firstSlide" : "") +
-          " markdownContent"
+            (state.page === 0 ? " slideMode-Viewer_content--firstSlide" : "") +
+            "contentClass" in option ? " " + option.contentClass : " markdownContent"
         }
         onclick={event => {
           if (event.target.tagName !== "IMG" || event.target.tagName === "A") {
