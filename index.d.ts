@@ -11,6 +11,10 @@ export interface State {
   }
 }
 
+export interface Option {
+  contentClass: string
+}
+
 /**
  * Interface for SlideMode actions.
  */
@@ -31,5 +35,5 @@ export declare const slide: {
 }
 
 export declare const SlideViewer: (
-  props: { state: State; actions: Actions; pages: string[] }
+  props: { state: State; actions: Actions; pages: string[], option: Option }
 ) => any
