@@ -7,7 +7,22 @@ export const SlideViewer = ({ state, actions, pages, option = {} }) => {
   const next = () => actions.next(pages.length)
   const prev = actions.prev
   return (
-    <div class={"slideMode" + (state.isFullScreen ? " fullscreen" : "")}>
+    <div
+      class={"slideMode" + (state.isFullScreen ? " fullscreen" : "")}
+      oncreate={element => {
+        element.customKeyHandler = event => {
+          if (event.keyCode === 37) {
+            prev()
+          } else if (event.keyCode === 39) {
+            next()
+          }
+        }
+        addEventListener("keydown", element.customKeyHandler)
+      }}
+      ondestroy={element => {
+        removeEventListener("keydown", element.customKeyHandler)
+      }}
+    >
       <div class="slideMode-Viewer">
         <div
           class={
@@ -19,16 +34,18 @@ export const SlideViewer = ({ state, actions, pages, option = {} }) => {
           }
           onclick={event => {
             if (
-              event.target.tagName !== "IMG" ||
+              event.target.tagName === "IMG" ||
               event.target.tagName === "A"
             ) {
               return
             }
 
-            // getBoundingClientRect always returns the actual rendered element
-            // dimensions, even if there are CSS transformations applied to it.
+            // We want to use getBoundingClientRect because it always returns
+            // the actual rendered element dimensions, even if there are CSS
+            // transformations applied to it.
             const rect = event.currentTarget.getBoundingClientRect()
 
+            // Should we transition to the next or the previous slide?
             if (event.clientX - rect.left > rect.width / 2) {
               next()
             } else {
