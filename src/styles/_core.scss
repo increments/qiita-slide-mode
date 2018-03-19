@@ -296,6 +296,7 @@
     }
   }
 
+  // TODO: Check team classes
   .teamArticle_body & &_controller,
   .teamEditor & &_controller {
     background: linear-gradient(to bottom, #458ac5 0%, darken(#458ac5, 10%) 100%);

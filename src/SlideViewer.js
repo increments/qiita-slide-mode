@@ -4,15 +4,13 @@ import { getMagnitudeFromRange } from "./getMagnitudeFromRange"
 import { QiitaLogo } from "./QiitaLogo"
 
 export const SlideViewer = ({ state, actions, pages }) => (
-  <div
-    class={
-      "slideMode" + (state.isFullScreen ? " fullscreen" : "")
-    }
-  >
+  <div class={"slideMode" + (state.isFullScreen ? " fullscreen" : "")}>
     <div class="slideMode-Viewer">
       <div
         class={
-          "slideMode-Viewer_content" + (state.page === 0 ? " slideMode-Viewer_content--firstSlide" : "") + " markdownContent"
+          "slideMode-Viewer_content" +
+          (state.page === 0 ? " slideMode-Viewer_content--firstSlide" : "") +
+          " markdownContent"
         }
         onclick={event => {
           if (event.target.tagName !== "IMG" || event.target.tagName === "A") {
@@ -73,7 +71,8 @@ export const SlideViewer = ({ state, actions, pages }) => (
               event.clientX,
               pages.length
             ),
-            left: (event.clientX - event.currentTarget.getBoundingClientRect().left)
+            left:
+              event.clientX - event.currentTarget.getBoundingClientRect().left
           })
         }}
         onmouseleave={event => {
