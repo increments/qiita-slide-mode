@@ -3,10 +3,31 @@ import { Tooltip } from "./Tooltip"
 import { getMagnitudeFromRange } from "./getMagnitudeFromRange"
 import { QiitaLogo } from "./QiitaLogo"
 
+const LEFT_KEY = 37
+const RIGHT_KEY = 39
+
 export const SlideViewer = ({ state, actions, pages, option = {} }) => {
   const { theme, contentClass } = option
+  const next = () => actions.next(pages.length)
+  const prev = actions.prev
+
   return (
-    <div class={"slideMode" + (state.isFullScreen ? " fullscreen" : "")}>
+    <div
+      class={"slideMode" + (state.isFullScreen ? " fullscreen" : "")}
+      oncreate={element => {
+        element.customKeyHandler = event => {
+          if (event.keyCode === LEFT_KEY) {
+            prev()
+          } else if (event.keyCode === RIGHT_KEY) {
+            next()
+          }
+        }
+        addEventListener("keydown", element.customKeyHandler)
+      }}
+      ondestroy={element => {
+        removeEventListener("keydown", element.customKeyHandler)
+      }}
+    >
       <div class="slideMode-Viewer">
         <div
           class={
@@ -16,21 +37,22 @@ export const SlideViewer = ({ state, actions, pages, option = {} }) => {
           }
           onclick={event => {
             if (
-              event.target.tagName !== "IMG" ||
+              event.target.tagName === "IMG" ||
               event.target.tagName === "A"
             ) {
               return
             }
 
-            // getBoundingClientRect always returns the actual rendered element
-            // dimensions, even if there are CSS transformations applied to it.
-
+            // We want to use getBoundingClientRect because it always returns
+            // the actual rendered element dimensions, even if there are CSS
+            // transformations applied to it.
             const rect = event.currentTarget.getBoundingClientRect()
 
+            // Should we transition to the next or the previous slide?
             if (event.clientX - rect.left > rect.width / 2) {
-              actions.next(pages.length)
+              next()
             } else {
-              actions.prev()
+              prev()
             }
           }}
           innerHTML={pages[state.page]}

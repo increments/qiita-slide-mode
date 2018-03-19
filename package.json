@@ -19,6 +19,9 @@
     "prepare": "npm run build",
     "format": "prettier --semi false --write {src,test}/**/*.js {,test/ts/}*.{ts,tsx}"
   },
+  "dependencies": {
+    "@increments/qiita-logo": "0.1.0"
+  },
   "devDependencies": {
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.1",
