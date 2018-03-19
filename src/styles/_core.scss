@@ -5,12 +5,24 @@
   border: 2px solid black;
   position: fixed;
   margin-left: -20px;
-  margin-top: -28px;
-  padding: 8px;
+  margin-top: -60px;
+  padding: 6px 8px;
   border-radius: 4px;
   font-size: 12px;
   letter-spacing: 3px;
   animation: slideModeFadeIn 0.25s ease-out;
+  // position: absolute;
+  bottom: 100px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: calc(50% - 14px);
+    bottom: -18px;
+    border: solid 14px transparent;
+    border-top: solid 10px rgba(0,0,0,0.85);
+    border-bottom: solid 10px transparent;
+  }
 }
 
 @keyframes slideModeFadeIn {
@@ -32,55 +44,6 @@
   margin: 0;
   height: 100%;
 }
-//   z-index: 0;
-//   position: absolute;
-//   top: 0;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-//   overflow: hidden;
-//   background-color: #000;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: flex-end;
-//   margin: 0;
-//
-//   .slide_preview {
-//     width: 100%;
-//     margin: 0 auto;
-//     border: 0;
-//     order: 0;
-//     flex: 1 1;
-//     font-size: 4em;
-//
-//     @media (min-width: 800px) {
-//       font-size: 2.2em;
-//     }
-//
-//     @media (min-width: 1024px) {
-//       font-size: 2.4em;
-//     }
-//
-//     .emoji {
-//       width: .7em;
-//       height: .7em;
-//       vertical-align: top;
-//     }
-//   }
-//
-//   .slide_controller {
-//     margin: 0;
-//     padding: 0;
-//     background-color: #444;
-//     color: #fff;
-//     order: 1;
-//     flex: 0 1;
-//
-//     &_btn {
-//       padding: 15px 20px;
-//     }
-//   }
-// }
 
 .slideMode {
   user-select: none;
@@ -88,6 +51,7 @@
   display: flex;
   flex-direction: column;
   height: 480px;
+  position: relative;
 
   &, * {
     box-sizing: border-box;
