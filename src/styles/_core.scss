@@ -1,51 +1,7 @@
-/* Tmp Style */
-/* TODO: remove */
-
-.unselectable {
-  user-select: none;
+@keyframes slideModeFadeIn {
+  0% { opacity:  0.0 }
+  100% { opacity: 1.0 }
 }
-
-.slideViewer {
-  cursor: pointer;
-  background: #eee;
-}
-
-.dashboard {
-  display: flex;
-  flex-direction: row;
-}
-
-.progress {
-  cursor: pointer;
-  display: flex;
-  background: gray;
-  width: 100%;
-}
-
-.progressFill {
-  background: black;
-}
-
-.fullscreen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  overflow: auto;
-  background: #eee; /* example */
-}
-
-.tooltip {
-  background: #fff;
-  border: 2px solid black;
-  position: fixed;
-  margin-top: -45px;
-  padding: 10px;
-}
-
-/* Main style */
-/* TODO: styling */
 
 @mixin fullscreen {
   z-index: 0;
@@ -55,55 +11,27 @@
   left: 0;
   right: 0;
   overflow: hidden;
-  background-color: #000;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   margin: 0;
-
-  .slide_preview {
-    width: 100%;
-    margin: 0 auto;
-    border: 0;
-    order: 0;
-    flex: 1 1;
-    font-size: 4em;
-
-    @media (min-width: 800px) {
-      font-size: 2.2em;
-    }
-
-    @media (min-width: 1024px) {
-      font-size: 2.4em;
-    }
-
-    .emoji {
-      width: .7em;
-      height: .7em;
-      vertical-align: top;
-    }
-  }
-
-  .slide_controller {
-    margin: 0;
-    padding: 0;
-    background-color: #444;
-    color: #fff;
-    order: 1;
-    flex: 0 1;
-
-    &_btn {
-      padding: 15px 20px;
-    }
-  }
+  height: 100%;
 }
 
-.slide {
+.slideMode {
+  user-select: none;
   margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  height: 480px;
+  position: relative;
 
-  .slideViewer {
+  &, * {
+    box-sizing: border-box;
+  }
+
+  &-Viewer {
     width: 100%;
-    height: 480px;
     padding: 0;
     position: relative;
     background-color: #fff;
@@ -111,9 +39,49 @@
     border-bottom: 0;
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
-    overflow: auto;
+    overflow: hidden;
     font-size: 2.2em;
     cursor: pointer;
+    pointer-events: none;
+    flex: 1;
+
+    &_content {
+      pointer-events: auto;
+      height: 100%;
+      padding: 1em;
+      overflow-y: auto;
+
+      * {
+        pointer-events: none;
+      }
+
+      a, img {
+        pointer-events: auto;
+      }
+
+      &--firstSlide {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+
+        h1 {
+          margin-top: .8em;
+          margin-bottom: .3em;
+          padding-bottom: .3em;
+          border-bottom: 1px solid lighten(#999, 20%);
+          font-size: 1.2em;
+          font-weight: bold;
+          line-height: 1.2;
+        }
+  
+        &Author {
+          font-size: .4em;
+          color: #999;
+        }
+      }
+    }
 
     @media (max-width: $break-point-xs) {
       font-size: 1.3em;
@@ -158,11 +126,6 @@
       font-size: 1.3em !important;
     }
 
-    > div {
-      min-height: 480px;
-      padding: 1em;
-    }
-
     > div > h1,
     > div > h2,
     > div > h3,
@@ -181,7 +144,7 @@
     > div > h4,
     > div > h5,
     > div > h6,
-    &_firstSlide {
+    &_content--firstSlide {
       &:only-child {
         border-bottom: 0;
         margin-top: 0;
@@ -264,26 +227,9 @@
       transform: scale(1.5);
       vertical-align: text-top;
     }
-
-    &_firstSlide {
-      h1 {
-        margin-top: .8em;
-        margin-bottom: .3em;
-        padding-bottom: .3em;
-        border-bottom: 1px solid lighten(#999, 20%);
-        font-size: 1.2em;
-        font-weight: bold;
-        line-height: 1.2;
-      }
-
-      &_author {
-        font-size: .4em;
-        color: #999;
-      }
-    }
   }
 
-  &_controller {
+  &-Dashboard {
     margin: 0;
     padding: 0 5px;
     width: 100%;
@@ -295,7 +241,7 @@
     display: flex;
     align-items: center;
 
-    &_btn {
+    &_button {
       transition: color .1s linear;
       padding: 15px;
       background-color: transparent;
@@ -305,23 +251,13 @@
       font-size: 14px;
       cursor: default;
 
-      &.clickable {
+      &--clickable {
         color: lighten(desaturate(#59bb0c, 40%), 30%);
         cursor: pointer;
 
         &:hover {
           color: #fff;
         }
-      }
-    }
-
-    &_btnGroup {
-      width: 90px;
-      min-width: 90px;
-      align-self: center;
-
-      .slide_controller_btn {
-        width: 50%;
       }
     }
 
@@ -334,46 +270,33 @@
     }
 
     &_progress {
+      cursor: pointer;
+      display: flex;
+      align-items: stretch;
+      background: gray;
       flex: 1;
-      padding: 0 10px 0 0;
-
-      &_container {
-        height: 10px;
-        margin-bottom: 0;
-        border-radius: 6px;
-        cursor: pointer;
-        overflow: hidden;
-      }
-
-      &_bar {
-        float: left;
-        width: 0%;
-        height: 100%;
-        line-height: 20px;
-        background-color: lighten(desaturate(#59bb0c, 35%), 40%);
-        transition: none;
-      }
-
-      &_remain {
-        background-color: darken(#59bb0c, 10%);
-      }
-    }
-
-    &_fullscreen,
-    &_logo {
-      width: 48px;
+      height: 10px;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #428b09;
       margin-right: 8px;
     }
 
-    &_logo {
-      height: 16px;
+    &_progressFill {
+      transition: width 0.15s ease-out;
+      background: #c6e6ad;
+    }
 
-      & > svg {
-        fill: #fff;
-      }
+    &_logo {
+      width: 48px;
+      margin-right: 8px;
+      height: 16px;
+      fill: #fff;
+      margin-left: 8px;
     }
   }
 
+  // TODO: Check team classes
   .teamArticle_body & &_controller,
   .teamEditor & &_controller {
     background: linear-gradient(to bottom, #458ac5 0%, darken(#458ac5, 10%) 100%);
@@ -402,6 +325,32 @@
     }
   }
 
+  &-Tooltip {
+    color: #fff;
+    background: rgba(0,0,0,0.85);
+    border: 2px solid rgba(0,0,0,0.85);
+    position: absolute;
+    margin-left: 131px;
+    margin-top: 0;
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    animation: slideModeFadeIn 0.25s ease-out;
+    bottom: 42px;
+    pointer-events: none;
+  
+    &::after {
+      content: '';
+      position: absolute;
+      left: calc(50% - 14px);
+      bottom: -18px;
+      border: solid 14px transparent;
+      border-top: solid 10px rgba(0,0,0,0.85);
+      border-bottom: solid 10px transparent;
+    }
+  }
+
   .editorPreview_article & &_preview {
     padding: .7em;
     font-size: 2vw;
@@ -412,6 +361,10 @@
   }
 
   // Fullscreen pseudo class does not work to write in mutilple selector.
+
+  &.fullscreen {
+    @include fullscreen;
+  }
 
   &:fullscreen {
     @include fullscreen;

@@ -1,14 +1,20 @@
 import { h } from "hyperapp"
 import { Tooltip } from "./Tooltip"
 import { getMagnitudeFromRange } from "./getMagnitudeFromRange"
+import { QiitaLogo } from "./QiitaLogo"
 
-export const SlideViewer = ({ state, actions, pages }) => (
-  <div class={"slide unselectable" + " " + (state.isFullScreen ? "fullscreen" : "")}>
-    <div class="slideViewer">
+export const SlideViewer = ({ state, actions, pages, option = {} }) => (
+  <div class={"slideMode" + (state.isFullScreen ? " fullscreen" : "")}>
+    <div class="slideMode-Viewer">
       <div
+        class={
+          "slideMode-Viewer_content" +
+          (state.page === 0 ? " slideMode-Viewer_content--firstSlide" : "") +
+           (option.contentClass ? " " + option.contentClass : " markdownContent")
+        }
         onclick={event => {
           if (event.target.tagName !== "IMG" || event.target.tagName === "A") {
-            return 
+            return
           }
 
           // getBoundingClientRect always returns the actual rendered element
@@ -28,23 +34,36 @@ export const SlideViewer = ({ state, actions, pages }) => (
 
     <Tooltip state={state.tooltip} length={pages.length} />
 
-    <div class="dashboard">
-      <button disabled={state.page === 0} onclick={actions.prev}>
-        Prev
+    <div class="slideMode-Dashboard">
+      <button
+        class={
+          "slideMode-Dashboard_button slideMode-Dashboard_button--prev " +
+          (state.page !== 0 ? "slideMode-Dashboard_button--clickable" : "")
+        }
+        disabled={state.page === 0}
+        onclick={actions.prev}
+      >
+        <i class="fa fa-backward" />
       </button>
       <button
+        class={
+          "slideMode-Dashboard_button slideMode-Dashboard_button--next " +
+          (state.page !== pages.length - 1
+            ? "slideMode-Dashboard_button--clickable"
+            : "")
+        }
         disabled={state.page === pages.length - 1}
         onclick={() => actions.next(pages.length)}
       >
-        Next
+        <i class="fa fa-forward" />
       </button>
 
-      <span>
-        {state.page + 1}/{pages.length}
+      <span class="slideMode-Dashboard_pageCount">
+        {state.page + 1} / {pages.length}
       </span>
 
       <div
-        class="progress"
+        class="slideMode-Dashboard_progress"
         onmousemove={event => {
           actions.tooltip.show({
             page: getMagnitudeFromRange(
@@ -52,7 +71,8 @@ export const SlideViewer = ({ state, actions, pages }) => (
               event.clientX,
               pages.length
             ),
-            left: event.clientX
+            left:
+              event.clientX - event.currentTarget.getBoundingClientRect().left
           })
         }}
         onmouseleave={event => {
@@ -69,14 +89,21 @@ export const SlideViewer = ({ state, actions, pages }) => (
         }}
       >
         <div
-          class="progressFill"
+          class="slideMode-Dashboard_progressFill"
           style={{
             width: `${(state.page + 1) / pages.length * 100}%`
           }}
         />
       </div>
 
-      <button onclick={actions.toggleFullScreen}>■</button>
+      <button
+        class="slideMode-Dashboard_button slideMode-Dashboard_button--fullscreen slideMode-Dashboard_button--clickable"
+        onclick={actions.toggleFullScreen}
+      >
+        <i class="fa fa-desktop" />
+      </button>
+
+      <QiitaLogo />
     </div>
   </div>
 )
