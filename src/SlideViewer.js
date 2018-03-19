@@ -3,7 +3,7 @@ import { Tooltip } from "./Tooltip"
 import { getMagnitudeFromRange } from "./getMagnitudeFromRange"
 import { QiitaLogo } from "./QiitaLogo"
 
-export const SlideViewer = ({ state, actions, pages, option }) => (
+export const SlideViewer = ({ state, actions, pages, option = {} }) => (
   <div class={"slideMode" + (state.isFullScreen ? " fullscreen" : "")}>
     <div class="slideMode-Viewer">
       <div
