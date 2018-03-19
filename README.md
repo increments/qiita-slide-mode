@@ -65,8 +65,16 @@ app(state, actions, view, document.body)
 
 ## Options
 
-### Usage
+### Properties
 
+* contentClass?: `string`
+  * default: "markdownContent"
+  * markdown content body css classname.
+* theme?: `string`
+  * default: `null`
+  * color scheme theme suffix
+
+### Example
 ```jsx
 // ...
 
@@ -84,15 +92,6 @@ const view = (state, actions) => (
   />
 )
 ```
-
-### Option properties
-
-* contentClass?: `string`
-  * default: "markdownContent"
-  * markdown content body css classname.
-* theme?: `string`
-  * default: `null`
-  * color scheme theme suffix
 
 ## License
 
