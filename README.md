@@ -4,6 +4,21 @@
 
 @increments/qiita-slide-mode includes all the components used in Qiita's Slide Mode.
 
+![](https://user-images.githubusercontent.com/56996/37584139-a512c2ec-2b97-11e8-8fd1-1c02e1efcf67.gif)
+
+<h2>Table of Contents</h2>
+<!-- TOC -->
+
+* [Installation](#installation)
+* [Usage](#usage)
+* [Styles](#styles)
+* [Options](#options)
+  * [Usage](#usage-1)
+  * [Option properties](#option-properties)
+* [License](#license)
+
+<!-- /TOC -->
+
 ## Installation
 
 ```
@@ -11,8 +26,6 @@ npm i @increments/qiita-slide-mode
 ```
 
 ## Usage
-
-on JS file
 
 ```jsx
 import { h, app } from "hyperapp"
@@ -43,27 +56,23 @@ const view = (state, actions) => (
 app(state, actions, view, document.body)
 ```
 
-on SCSS file
+## Styles
 
 ```scss
-@import "@increments/qiita-slide-mode/src/styles/vars"
-@import "@increments/qiita-slide-mode/src/styles/core"
+@import "@increments/qiita-slide-mode/src/styles/vars";
+@import "@increments/qiita-slide-mode/src/styles/core";
 ```
 
-![](https://user-images.githubusercontent.com/56996/35896152-4054037e-0bfe-11e8-8b50-3e351abe0f60.gif)
-
 ## Options
-
 
 ### Usage
 
 ```jsx
-
 // ...
 
 const option = {
-  contentClass: 'your-awesome-class',
-  theme: 'your-theme'
+  contentClass: "your-awesome-class",
+  theme: "your-theme"
 }
 
 const view = (state, actions) => (
@@ -78,19 +87,12 @@ const view = (state, actions) => (
 
 ### Option properties
 
-- contentClass?: string
-  - default: 'markdownContent'
-  - markdown content body css classname.
-- theme? string
-  - default: null
-  - color scheme theme suffix
-
-## TODO
-
-* Refactor `getBoundingClientRect` usage and reuse in tooltip.
-* Make tooltip its own component.
-* Make progress bar its own component.
-* Use good styles.
+* contentClass?: `string`
+  * default: "markdownContent"
+  * markdown content body css classname.
+* theme?: `string`
+  * default: `null`
+  * color scheme theme suffix
 
 ## License
 
