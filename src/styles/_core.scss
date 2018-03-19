@@ -1,30 +1,3 @@
-
-.tooltip {
-  color: #fff;
-  background: rgba(0,0,0,0.85);
-  border: 2px solid black;
-  position: fixed;
-  margin-left: -20px;
-  margin-top: -60px;
-  padding: 6px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  letter-spacing: 3px;
-  animation: slideModeFadeIn 0.25s ease-out;
-  // position: absolute;
-  bottom: 100px;
-
-  &::after {
-    content: '';
-    position: absolute;
-    left: calc(50% - 14px);
-    bottom: -18px;
-    border: solid 14px transparent;
-    border-top: solid 10px rgba(0,0,0,0.85);
-    border-bottom: solid 10px transparent;
-  }
-}
-
 @keyframes slideModeFadeIn {
   0% { opacity:  0.0 }
   100% { opacity: 1.0 }
@@ -349,6 +322,32 @@
       &_remain {
         background-color: darken(#458ac5, 15%);
       }
+    }
+  }
+
+  &-Tooltip {
+    color: #fff;
+    background: rgba(0,0,0,0.85);
+    border: 2px solid black;
+    position: fixed;
+    margin-left: -20px;
+    margin-top: -60px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    animation: slideModeFadeIn 0.25s ease-out;
+    // position: absolute;
+    bottom: 100px;
+  
+    &::after {
+      content: '';
+      position: absolute;
+      left: calc(50% - 14px);
+      bottom: -18px;
+      border: solid 14px transparent;
+      border-top: solid 10px rgba(0,0,0,0.85);
+      border-bottom: solid 10px transparent;
     }
   }
 
