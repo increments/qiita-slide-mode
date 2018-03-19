@@ -10,7 +10,7 @@ export const SlideViewer = ({ state, actions, pages, option = {} }) => (
         class={
           "slideMode-Viewer_content" +
           (state.page === 0 ? " slideMode-Viewer_content--firstSlide" : "") +
-           ("contentClass" in option ? " " + option.contentClass : " markdownContent")
+           (option.contentClass ? " " + option.contentClass : " markdownContent")
         }
         onclick={event => {
           if (event.target.tagName !== "IMG" || event.target.tagName === "A") {
