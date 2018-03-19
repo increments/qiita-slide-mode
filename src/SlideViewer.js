@@ -71,7 +71,7 @@ export const SlideViewer = ({ state, actions, pages }) => (
               event.clientX,
               pages.length
             ),
-            left: event.clientX
+            left: (event.clientX - event.currentTarget.getBoundingClientRect().left)
           })
         }}
         onmouseleave={event => {

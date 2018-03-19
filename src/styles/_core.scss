@@ -328,17 +328,17 @@
   &-Tooltip {
     color: #fff;
     background: rgba(0,0,0,0.85);
-    border: 2px solid black;
-    position: fixed;
-    margin-left: -20px;
-    margin-top: -60px;
+    border: 2px solid rgba(0,0,0,0.85);
+    position: absolute;
+    margin-left: 131px;
+    margin-top: 0;
     padding: 6px 8px;
     border-radius: 4px;
     font-size: 12px;
     letter-spacing: 3px;
     animation: slideModeFadeIn 0.25s ease-out;
-    // position: absolute;
-    bottom: 100px;
+    bottom: 42px;
+    pointer-events: none;
   
     &::after {
       content: '';
