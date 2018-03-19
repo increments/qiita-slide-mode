@@ -241,6 +241,10 @@
     display: flex;
     align-items: center;
 
+    &-Team {
+      background: linear-gradient(to bottom, #458ac5 0%, darken(#458ac5, 10%) 100%);
+    }
+
     &_button {
       transition: color .1s linear;
       padding: 15px;
@@ -257,6 +261,19 @@
 
         &:hover {
           color: #fff;
+        }
+      }
+
+      &-Team {
+        color: #20517b;
+
+        &.slideMode-Dashboard_button--clickable {
+          color: lighten(#458ac5, 20%);
+          cursor: pointer;
+          
+          &:hover {
+            color: #fff;
+          }
         }
       }
     }
@@ -280,11 +297,19 @@
       overflow: hidden;
       background: #428b09;
       margin-right: 8px;
+
+      &-Team {
+        background-color: lighten(#458ac5, 30%);
+      }
     }
 
     &_progressFill {
       transition: width 0.15s ease-out;
       background: #c6e6ad;
+
+      &-Team {
+        background-color: darken(#458ac5, 15%);
+      }
     }
 
     &_logo {
@@ -293,35 +318,6 @@
       height: 16px;
       fill: #fff;
       margin-left: 8px;
-    }
-  }
-
-  // TODO: Check team classes
-  .teamArticle_body & &_controller,
-  .teamEditor & &_controller {
-    background: linear-gradient(to bottom, #458ac5 0%, darken(#458ac5, 10%) 100%);
-
-    &_btn {
-      color: #20517b;
-
-      &.clickable {
-        color: lighten(#458ac5, 20%);
-        cursor: pointer;
-
-        &:hover {
-          color: #fff;
-        }
-      }
-    }
-
-    &_progress {
-      &_bar {
-        background-color: lighten(#458ac5, 30%);
-      }
-
-      &_remain {
-        background-color: darken(#458ac5, 15%);
-      }
     }
   }
 

@@ -3,7 +3,7 @@ import { Tooltip } from "./Tooltip"
 import { getMagnitudeFromRange } from "./getMagnitudeFromRange"
 import { QiitaLogo } from "./QiitaLogo"
 
-export const SlideViewer = ({ state, actions, pages }) => (
+export const SlideViewer = ({ state, actions, pages, theme }) => (
   <div class={"slideMode" + (state.isFullScreen ? " fullscreen" : "")}>
     <div class="slideMode-Viewer">
       <div
@@ -34,11 +34,16 @@ export const SlideViewer = ({ state, actions, pages }) => (
 
     <Tooltip state={state.tooltip} length={pages.length} />
 
-    <div class="slideMode-Dashboard">
+    <div
+      class={
+        "slideMode-Dashboard" + (theme ? " slideMode-Dashboard-" + theme : "")
+      }
+    >
       <button
         class={
           "slideMode-Dashboard_button slideMode-Dashboard_button--prev " +
-          (state.page !== 0 ? "slideMode-Dashboard_button--clickable" : "")
+          (theme ? " slideMode-Dashboard_button-" + theme : "") +
+          (state.page !== 0 ? " slideMode-Dashboard_button--clickable" : "")
         }
         disabled={state.page === 0}
         onclick={actions.prev}
@@ -48,8 +53,9 @@ export const SlideViewer = ({ state, actions, pages }) => (
       <button
         class={
           "slideMode-Dashboard_button slideMode-Dashboard_button--next " +
+          (theme ? " slideMode-Dashboard_button-" + theme : "") +
           (state.page !== pages.length - 1
-            ? "slideMode-Dashboard_button--clickable"
+            ? " slideMode-Dashboard_button--clickable"
             : "")
         }
         disabled={state.page === pages.length - 1}
@@ -63,7 +69,10 @@ export const SlideViewer = ({ state, actions, pages }) => (
       </span>
 
       <div
-        class="slideMode-Dashboard_progress"
+        class={
+          "slideMode-Dashboard_progress" +
+          (theme ? " slideMode-Dashboard_progress-" + theme : "")
+        }
         onmousemove={event => {
           actions.tooltip.show({
             page: getMagnitudeFromRange(
@@ -89,7 +98,10 @@ export const SlideViewer = ({ state, actions, pages }) => (
         }}
       >
         <div
-          class="slideMode-Dashboard_progressFill"
+          class={
+            "slideMode-Dashboard_progressFill" +
+            (theme ? " slideMode-Dashboard_progressFill-" + theme : "")
+          }
           style={{
             width: `${(state.page + 1) / pages.length * 100}%`
           }}
@@ -97,7 +109,10 @@ export const SlideViewer = ({ state, actions, pages }) => (
       </div>
 
       <button
-        class="slideMode-Dashboard_button slideMode-Dashboard_button--fullscreen slideMode-Dashboard_button--clickable"
+        class={
+          "slideMode-Dashboard_button slideMode-Dashboard_button--fullscreen slideMode-Dashboard_button--clickable" +
+          (theme ? " slideMode-Dashboard_button-" + theme : "")
+        }
         onclick={actions.toggleFullScreen}
       >
         <i class="fa fa-desktop" />

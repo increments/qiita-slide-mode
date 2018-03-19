@@ -29,6 +29,7 @@ const view = (state, actions) => (
       state={state.slide}
       actions={actions.slide}
       pages={state.article.body}
+      theme={"Team"}
     />
   </div>
 )
