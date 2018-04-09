@@ -1,7 +1,6 @@
 {
-  "private": true,
   "name": "@increments/qiita-slide-mode",
-  "description": "Modules and components for Qiita's Slide Mode.",
+  "description": "Qiita's Slide Mode component.",
   "version": "0.0.0",
   "main": "dist/QiitaSlideMode.js",
   "module": "src/index.js",
@@ -14,10 +13,11 @@
   ],
   "author": "Jorge Bucaran",
   "scripts": {
-    "test": "echo 0",
+    "test": "echo We live in an interactive world!",
     "build": "rollup -m -f umd -n QiitaSlideMode -c -i src/index.js -o dist/QiitaSlideMode.js",
     "prepare": "npm run build",
-    "format": "prettier --semi false --write {src,test}/**/*.js {,test/ts/}*.{ts,tsx}"
+    "format": "prettier --semi false --write {src,test}/**/*.js {,test/ts/}*.{ts,tsx}",
+    "release": "npm run build && npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
   "dependencies": {
     "@increments/qiita-logo": "0.1.0"
@@ -25,18 +25,17 @@
   "devDependencies": {
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.1",
-    "hyperapp": "1.1.2",
-    "prettier": "^1.10.2",
+    "hyperapp": "1.2.5",
+    "prettier": "^1.11.1",
     "typescript": "2.7.1",
 
-    "rollup": "^0.56.5",
-    "rollup-plugin-buble": "^0.15.0",
-    "rollup-plugin-commonjs": "^8.2.0",
-    "rollup-plugin-postcss": "^1.3.3",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-uglify": "^2.0.1"
+    "rollup": "^0.57.1",
+    "rollup-plugin-buble": "^0.19.2",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-uglify": "^3.0.0"
   },
   "peerDependencies": {
-    "hyperapp": "1.1.2"
+    "hyperapp": "1.2.5"
   }
 }
