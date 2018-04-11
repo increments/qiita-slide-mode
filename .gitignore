@@ -17,3 +17,6 @@ coverage
 # Dist
 *.gz
 dist/
+src/QiitaLogo.js
+src/SlideViewer.js
+src/Tooltip.js
