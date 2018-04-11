@@ -1,0 +1,42 @@
+@import "../src/styles/style";
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Hiragino Kaku Gothic ProN, "メイリオ",
+    meiryo, sans-serif;
+}
+
+.demo {
+  &-header {
+    display: block;
+    height: 56px;
+    background-color: #55c500;
+  }
+
+  &-footer {
+    margin-top: 500px;
+    background-color: #f6f6f6;
+    height: 76px;
+  }
+
+  &-mainWrapper {
+    background-color: #f6f6f6;
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }
+
+  &-main {
+    max-width: 804px;
+    margin: 0 auto;
+    padding: 24px;
+    background-color: #ffffff;
+    min-height: 100vh;
+  }
+
+  &-articleTitle {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    font-feature-settings: "palt";
+    line-height: 1.4;
+  }
+}

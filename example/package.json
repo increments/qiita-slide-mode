@@ -1,21 +1,17 @@
 {
-  "name": "qiita-slide-mode-example",
-  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "parcel index.html --open"
+  },
   "dependencies": {
     "@increments/qiita-logo": "^0.1.0",
+    "hyperapp": "^1.2.5"
+  },
+  "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.1",
-    "hyperapp": "^1.2.5",
-    "npm-run-all": "^4.1.2",
+    "node-sass": "^4.7.2",
     "parcel-bundler": "^1.6.2"
-  },
-  "scripts": {
-    "start": "npm-run-all -p dev:*",
-    "dev:scss": "node-sass ../src/styles/style.scss ./style.css;node-sass ../src/styles/style.scss ./style.css -w",
-    "dev:js": "parcel index.html"
-  },
-  "devDependencies": {
-    "node-sass": "^4.7.2"
   }
 }
