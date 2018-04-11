@@ -3,21 +3,6 @@
   100% { opacity: 1.0 }
 }
 
-@mixin fullscreen {
-  z-index: 0;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  margin: 0;
-  height: 100%;
-}
-
 .slideMode {
   user-select: none;
   margin-bottom: 40px;
@@ -83,24 +68,24 @@
       }
     }
 
-    @media (max-width: $break-point-xs) {
+    @media (max-width: $qiita-slide-mode-break-point-xs) {
       font-size: 1.3em;
     }
 
-    @media (min-width: $break-point-s) {
+    @media (min-width: $qiita-slide-mode-break-point-s) {
       font-size: 1.6em;
     }
 
-    @media (min-width: $break-point-m) {
+    @media (min-width: $qiita-slide-mode-break-point-m) {
       font-size: 1.9em;
     }
 
-    @media (min-width: $break-point-l) {
+    @media (min-width: $qiita-slide-mode-break-point-l) {
       font-size: 2.2em;
     }
 
     .it-MdContent & {
-      @media (min-width: $break-point-l) {
+      @media (min-width: $qiita-slide-mode-break-point-l) {
         font-size: 2em;
       }
     }
@@ -356,43 +341,23 @@
     white-space: pre;
   }
 
-  // Fullscreen pseudo class does not work to write in mutilple selector.
-
   &.fullscreen {
-    @include fullscreen;
+    z-index: $qiita-slide-mode-fullscreen-z-index;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 0;
+    height: 100%;
+
     .slideMode-Dashboard {
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0;
-    }
-  }
-
-  &:fullscreen {
-    @include fullscreen;
-
-    .slide_preview {
-      img {
-        zoom: 1.8;
-      }
-    }
-  }
-
-  &:-moz-full-screen {
-    @include fullscreen;
-
-    .slide_preview {
-      img {
-        width: 80%;
-      }
-    }
-  }
-
-  &:-ms-full-screen {
-    @include fullscreen;
-
-    .slide_preview {
-      img {
-        zoom: 1.8;
-      }
     }
   }
 }
