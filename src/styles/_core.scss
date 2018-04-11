@@ -1,6 +1,10 @@
 @keyframes slideModeFadeIn {
-  0% { opacity:  0.0 }
-  100% { opacity: 1.0 }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .slideMode {
@@ -11,7 +15,8 @@
   height: 480px;
   position: relative;
 
-  &, * {
+  &,
+  * {
     box-sizing: border-box;
   }
 
@@ -40,7 +45,8 @@
         pointer-events: none;
       }
 
-      a, img {
+      a,
+      img {
         pointer-events: auto;
       }
 
@@ -52,17 +58,17 @@
         align-items: stretch;
 
         h1 {
-          margin-top: .8em;
-          margin-bottom: .3em;
-          padding-bottom: .3em;
+          margin-top: 0.8em;
+          margin-bottom: 0.3em;
+          padding-bottom: 0.3em;
           border-bottom: 1px solid lighten(#999, 20%);
           font-size: 1.2em;
           font-weight: bold;
           line-height: 1.2;
         }
-  
+
         &Author {
-          font-size: .4em;
+          font-size: 0.4em;
           color: #999;
         }
       }
@@ -119,7 +125,7 @@
     > div > h6 {
       &:first-child {
         margin-top: 0;
-        margin-bottom: .4em;
+        margin-bottom: 0.4em;
       }
     }
 
@@ -159,7 +165,6 @@
       font-size: 2.5em;
     }
 
-
     p:only-child > a:only-child img {
       margin-bottom: 0;
       position: absolute;
@@ -174,19 +179,19 @@
     }
 
     .emoji {
-      width: .8em;
-      height: .8em;
+      width: 0.8em;
+      height: 0.8em;
       vertical-align: baseline;
     }
 
     p {
-      margin: 0 0 .6em;
+      margin: 0 0 0.6em;
       line-height: 1.6;
     }
 
     ul,
     ol {
-      margin: 0 0 .6em;
+      margin: 0 0 0.6em;
     }
 
     ul {
@@ -194,7 +199,7 @@
     }
 
     li {
-      margin-bottom: .3em;
+      margin-bottom: 0.3em;
       line-height: 1.4;
     }
 
@@ -203,7 +208,7 @@
 
       pre {
         cursor: text;
-        font-size: .7em;
+        font-size: 0.7em;
       }
     }
 
@@ -231,7 +236,7 @@
     }
 
     &_button {
-      transition: color .1s linear;
+      transition: color 0.1s linear;
       padding: 15px;
       background-color: transparent;
       border: 0;
@@ -255,7 +260,7 @@
         &.slideMode-Dashboard_button--clickable {
           color: lighten(#458ac5, 20%);
           cursor: pointer;
-          
+
           &:hover {
             color: #fff;
           }
@@ -308,8 +313,8 @@
 
   &-Tooltip {
     color: #fff;
-    background: rgba(0,0,0,0.85);
-    border: 2px solid rgba(0,0,0,0.85);
+    background: rgba(0, 0, 0, 0.85);
+    border: 2px solid rgba(0, 0, 0, 0.85);
     position: absolute;
     margin-left: 131px;
     margin-top: 0;
@@ -320,20 +325,20 @@
     animation: slideModeFadeIn 0.25s ease-out;
     bottom: 42px;
     pointer-events: none;
-  
+
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       left: calc(50% - 14px);
       bottom: -18px;
       border: solid 14px transparent;
-      border-top: solid 10px rgba(0,0,0,0.85);
+      border-top: solid 10px rgba(0, 0, 0, 0.85);
       border-bottom: solid 10px transparent;
     }
   }
 
   .editorPreview_article & &_preview {
-    padding: .7em;
+    padding: 0.7em;
     font-size: 2vw;
   }
 
@@ -343,7 +348,7 @@
 
   &.fullscreen {
     z-index: $qiita-slide-mode-fullscreen-z-index;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;

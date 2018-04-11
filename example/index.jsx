@@ -25,12 +25,8 @@ const actions = {
 
 const view = (state, actions) => (
   <div>
-    <SlideViewer
-      state={state.slide}
-      actions={actions.slide}
-      pages={state.article.body}
-    />
+    <SlideViewer state={state.slide} actions={actions.slide} pages={state.article.body} />
   </div>
 )
 
-app(state, actions, view, document.body)
+app(state, actions, view, document.getElementById("app"))

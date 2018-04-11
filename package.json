@@ -18,8 +18,10 @@
     "build:dist": "rollup -m -f umd -n QiitaSlideMode -c -i src/index.js -o dist/QiitaSlideMode.js",
     "build:jsx": "babel -d ./ src/*.jsx",
     "prepare": "npm run build",
-    "format": "prettier --semi false --write {src,test}/**/*.js {,test/ts/}*.{ts,tsx}",
-    "release": "npm run build && npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
+    "format": "npm run format:css && npm run format:js",
+    "format:css": "prettier --parser scss --write {src,example}/**/*.scss",
+    "format:js": "prettier --write {src,example,test}/**/*.js",
+    "release": "npm run build && npm run test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
   "dependencies": {
     "@increments/qiita-logo": "0.1.0"
@@ -52,5 +54,9 @@
         }
       ]
     ]
+  },
+  "prettier": {
+    "printWidth": 120,
+    "semi": false
   }
 }
