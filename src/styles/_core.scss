@@ -342,7 +342,7 @@
   }
 
   &.fullscreen {
-    z-index: 0;
+    z-index: $qiita-slide-mode-fullscreen-z-index;
     position: absolute;
     top: 0;
     bottom: 0;
