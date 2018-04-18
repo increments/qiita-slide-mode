@@ -2,7 +2,7 @@
   "name": "@increments/qiita-slide-mode",
   "description": "Qiita's Slide Mode component.",
   "version": "0.2.0",
-  "main": "dist/QiitaSlideMode.js",
+  "main": "dist/index.js",
   "module": "src/index.js",
   "license": "MIT",
   "repository": "increments/qiita-slide-mode",
@@ -15,7 +15,7 @@
   "scripts": {
     "test": "echo We live in an interactive world!",
     "build": "npm run build:jsx && npm run build:dist",
-    "build:dist": "rollup -m -f umd -n QiitaSlideMode -c -i src/index.js -o dist/QiitaSlideMode.js",
+    "build:dist": "(rm -fr dist || true) && rollup -c",
     "build:jsx": "babel -d ./ src/*.jsx",
     "prepare": "npm run build",
     "format": "npm run format:css && npm run format:js",
@@ -35,8 +35,6 @@
     "rollup": "^0.57.1",
     "rollup-plugin-buble": "^0.19.2",
     "rollup-plugin-commonjs": "^9.1.0",
-    "rollup-plugin-node-resolve": "^3.3.0",
-    "rollup-plugin-uglify": "^3.0.0",
     "typescript": "2.7.1"
   },
   "peerDependencies": {
