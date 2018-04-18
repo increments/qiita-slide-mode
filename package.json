@@ -1,7 +1,7 @@
 {
   "name": "@increments/qiita-slide-mode",
   "description": "Qiita's Slide Mode component.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/index.js",
   "license": "MIT",
   "repository": "increments/qiita-slide-mode",
