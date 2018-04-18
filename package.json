@@ -3,7 +3,6 @@
   "description": "Qiita's Slide Mode component.",
   "version": "0.2.0",
   "main": "dist/index.js",
-  "module": "src/index.js",
   "license": "MIT",
   "repository": "increments/qiita-slide-mode",
   "files": [
