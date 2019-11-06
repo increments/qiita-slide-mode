@@ -29,16 +29,14 @@
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.1",
-    "hyperapp": "1.2.5",
     "prettier": "^1.11.1",
+    "react": "^16.11.0",
     "rollup": "^0.57.1",
     "rollup-plugin-buble": "^0.19.2",
     "rollup-plugin-commonjs": "^9.1.0",
     "typescript": "2.7.1"
   },
-  "peerDependencies": {
-    "hyperapp": "1.2.5"
-  },
+  "peerDependencies": {},
   "babel": {
     "presets": [
       "env"
