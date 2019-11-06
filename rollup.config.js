@@ -1,5 +1,6 @@
 import buble from "rollup-plugin-buble"
 import commonjs from "rollup-plugin-commonjs"
+import typescript from 'rollup-plugin-typescript'
 
 export default {
   input: "./src/index.js",
@@ -10,6 +11,7 @@ export default {
   },
   plugins: [
     commonjs(),
+    typescript(),
     buble({ jsx: "h" })
   ]
 }
