@@ -1,9 +1,9 @@
-import { h } from "hyperapp"
+import React from "react"
 import { qiitaLogo } from "@increments/qiita-logo"
 
-export const QiitaLogo = () => (
+export default () => (
   <svg
-    class="slideMode-Dashboard_logo"
+    className="slideMode-Dashboard_logo"
     xmlns="http://www.w3.org/2000/svg"
     viewBox={qiitaLogo.viewBox}
   >

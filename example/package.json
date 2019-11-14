@@ -5,7 +5,8 @@
   },
   "dependencies": {
     "@increments/qiita-logo": "^0.1.0",
-    "hyperapp": "^1.2.5"
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
   },
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
